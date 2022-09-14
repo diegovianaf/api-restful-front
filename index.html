@@ -1,18 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>API Restful</title>
 </head>
+
 <body>
-  <script>
-    fetch('http://localhost:8080/api/products').then((response) => {
-      response.json().then((data) => {
-        console.log(data)
-      })
-    })
-  </script>
+  <h1>Products List</h1>
+
+  <ul id="products-list"></ul>
+
+  <hr>
+
+  <h2>Add New Products</h2>
+  <form id="form">
+    <div>
+      <label>Name</label>
+      <input type="text" name="name">
+    </div>
+    <div>
+      <label>Brand</label>
+      <input type="text" name="brand">
+    </div>
+    <div>
+      <label>Price</label>
+      <input type="text" name="price">
+    </div>
+    <button type="submit">Add</button>
+  </form>
+
+  <script src="./script.js"></script>
 </body>
+
 </html>
