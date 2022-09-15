@@ -8,11 +8,33 @@ function showProductsList() {
   response.json().then((data) => {
     const productsHtml = data.map((product) => `
       <li>
-        ${product.name} - ${product.brand} - $${product.price}
+        ${product.name} - ${product.brand} - $${product.price} - <a href="#" class="remove-button" data-id="${product._id}">[Remove]</a>
       </li>
     `).join('')
 
       productsList.innerHTML = productsHtml
+
+      const removeButtons = document.querySelectorAll('.remove-button')
+      removeButtons.forEach((button) => {
+        button.onclick = function(e) {
+          e.preventDefault()
+
+          const id = this.dataset.id
+
+          fetch(`${API_URL}/${id}`, {
+            method: 'DELETE',
+          }).then((response) => {
+            response.json().then((data) => {
+              if (data.message = 'success') {
+                showProductsList()
+                alert('Product successfully removed!')
+              } else {
+                alert('Oops, an error occurred, please try again!')
+              }
+            })
+          })
+        }
+      })
     })
   })
 }
