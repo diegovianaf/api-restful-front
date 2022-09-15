@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>API Restful</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -31,6 +32,27 @@
     </div>
     <button type="submit">Add</button>
   </form>
+
+  <div id="edit" class="hidden-form">
+    <hr>
+    <h2>Edit Product</h2>
+    <form id="formEdit">
+      <input type="hidden" name="id">
+      <div>
+        <label>Name</label>
+        <input type="text" name="name">
+      </div>
+      <div>
+        <label>Brand</label>
+        <input type="text" name="brand">
+      </div>
+      <div>
+        <label>Price</label>
+        <input type="text" name="price">
+      </div>
+      <button type="submit">Edit</button>
+    </form>
+  </div>
 
   <script src="./script.js"></script>
 </body>
